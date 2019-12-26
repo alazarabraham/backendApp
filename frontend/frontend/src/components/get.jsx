@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
 import loadData from '../utils.js/utils'
+import {Table, TableRow, TableCell} from '@material-ui/core'
 export default class Get extends Component {
     state = {
         artist: []
@@ -13,12 +14,21 @@ export default class Get extends Component {
     render(){
         const { artist } = this.state;
         return(
-            <div>
-    <h1>{artist.map(artists=>(
-    artist.influence
-    ))}</h1>
+            <Table>
+                {artist.map(artists=>(
+                    <TableRow key={artists.id} value={artists.id}>
+                <TableCell>{artists.name}</TableCell>
+                <TableCell>{artists.bestsellingalbum}</TableCell>
+                <TableCell>{artists.hometown}</TableCell>
+                <TableCell>{artists.career}</TableCell>
 
-            </div>
+
+                    </TableRow>
+
+                ))}
+ 
+
+            </Table>
         )
     }
 }
