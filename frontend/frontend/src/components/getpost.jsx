@@ -33,7 +33,7 @@ export default class GetPost extends Component{
         e.preventDefault();
         const data = this.state;
         await this.addArtist(data);
-        this.setState({ referrer: '/addartist'})
+        this.setState({ referrer: '/'})
     }
     handlechange = async(e)=>{
         const {name, value} = e.target;
@@ -46,6 +46,7 @@ export default class GetPost extends Component{
         if (referrer) return <Redirect to={referrer}/>
         return(
         <FormControl onSubmit={this.handleSubmit} method="POST">
+    
                 <TextField id="standard-basic" label="Id" type="text" name='id' value={id} onChange={this.handlechange}/>
                 <TextField id="standard-basic" label="Name" type="text"  name='name' value={name} onChange={this.handlechange}/>
                 <TextField id="standard-basic" label="Best Selling Album" type="text"  name='bestsellingalbum'  value={bestsellingalbum} onChange={this.handlechange}/>

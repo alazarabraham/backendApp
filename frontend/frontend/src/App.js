@@ -11,7 +11,7 @@ function App() {
       <Router>
 
       
-      <h1>hello</h1>
+      <h1>Artists</h1>
       <div>
       <Route exact path='/'><Get/></Route>
       </div>
