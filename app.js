@@ -16,6 +16,8 @@ const corsOptions = {
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const artistRouter = require('./routes/artist')
+const userRouter = require('./routes/user')
+
 
 var app = express();
 const cors = require('cors')
@@ -28,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/artist', artistRouter);
+app.use('/user', userRouter);
+
 app.use('/users', usersRouter);
 
 module.exports = app;

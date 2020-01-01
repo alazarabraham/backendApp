@@ -1,6 +1,6 @@
 const db = require('./conn')
 
-class Artist {
+class User {
     constructor(firstName,lastName, username, bio, email, phoneNumber, gender){
         this.firstName = firstName;
         this.lastName =lastName;
@@ -12,7 +12,7 @@ class Artist {
     }
     static async getAll(){
         try{
-            const response = db.any(`select * from userTable`)
+            const response = db.any(`select * from usertable`)
             return response
         }
         catch(error){
@@ -21,7 +21,7 @@ class Artist {
 
     } 
     static async addUser(firstName,lastName, username, bio, email, phoneNumber, gender){
-        const query = `INSERT INTO userTable ( firstName,lastName, username, bio, email, phoneNumber, gender) VALUES (${id}, '${name}', $3, $4,$5);`;
+        const query = `INSERT INTO usertable ( firstName,lastName, username, bio, email, phoneNumber, gender) VALUES ($1,$2, $3, $4,$5, $6, $7);`;
 
         try{
             const response=await db.result(query, [firstName,lastName, username, bio, email, phoneNumber, gender])
@@ -32,4 +32,4 @@ class Artist {
         }
     }
 }
-module.exports = Artist;
+module.exports = User;

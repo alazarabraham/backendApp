@@ -5,15 +5,16 @@ import {FormControl, FormLabel, TextField, Button} from '@material-ui/core'
 import {Redirect} from 'react-router-dom'
 export default class GetPost extends Component{
     state ={
-        id: '',
-        name: '',
-        bestsellingalbum: '',
-        hometown: '',
-        career: '',
+        firstName: '',
+        lastName: '',
+        userName: '',
+        bio: '',
+        email: '',
+        phoneNumber: '',
         referrer: null
     }
    addArtist = async data => {
-        const response = await fetch(`http://localhost:3333/artist/addartist`, {
+        const response = await fetch(`http://localhost:3333/user/addUser`, {
         method: 'POST',
         headers: {
             Accept: "application/json",
@@ -42,16 +43,19 @@ export default class GetPost extends Component{
         })
     }
     render(){
-        const {id,name,bestsellingalbum,hometown, career, referrer} = this.state
+        const {firstName,lastName, username, bio, email, phoneNumber, gender, referrer} = this.state
         if (referrer) return <Redirect to={referrer}/>
         return(
         <FormControl onSubmit={this.handleSubmit} method="POST">
     
-                <TextField id="standard-basic" label="Id" type="text" name='id' value={id} onChange={this.handlechange}/>
-                <TextField id="standard-basic" label="Name" type="text"  name='name' value={name} onChange={this.handlechange}/>
-                <TextField id="standard-basic" label="Best Selling Album" type="text"  name='bestsellingalbum'  value={bestsellingalbum} onChange={this.handlechange}/>
-                <TextField id="standard-basic" label="Home Town" type="text"  name='hometown' value={hometown} onChange={this.handlechange}/>
-                <TextField id="standard-basic" label="Career" type="text" name='career'  value={career} onChange={this.handlechange}/>
+                <TextField id="standard-basic" label="firstName" type="text" name='firstName' value={firstName} onChange={this.handlechange}/>
+                <TextField id="standard-basic" label="lastName" type="text"  name='lastName' value={lastName} onChange={this.handlechange}/>
+                <TextField id="standard-basic" label="userName" type="text"  name='userName'  value={username} onChange={this.handlechange}/>
+                <TextField id="standard-basic" label="bio" type="text"  name='bio' value={bio} onChange={this.handlechange}/>
+                <TextField id="standard-basic" label="email" type="email" name='email'  value={email} onChange={this.handlechange}/>
+                <TextField id="standard-basic" label="phoneNumber" type="text" name='phoneNumber'  value={phoneNumber} onChange={this.handlechange}/>
+                <TextField id="standard-basic" label="gender" type="text" name='gender'  value={gender} onChange={this.handlechange}/>
+
             <Button type="submit" variant='outlined' color='secondary' onClick={this.handleSubmit}>Enter</Button>
         </FormControl>
         )}
