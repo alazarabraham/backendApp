@@ -12,7 +12,7 @@ export default class Get extends Component {
     }
    
     render(){
-        const { userTable } = this.state;
+        const { user } = this.state;
         return(
             <Table>
                
@@ -28,15 +28,14 @@ export default class Get extends Component {
                     
                 </TableHead> 
                 <TableBody>
-                {userTable.map(users=>(
+                {user.map(users=>(
                 <TableRow key={users.id} value={users.id}> 
-                <TableCell>{users.firstName}</TableCell>
-                <TableCell>{users.lastName}</TableCell>
-                <TableCell>{users.userName}</TableCell>
+                <TableCell>{users.firstname}</TableCell>
+                <TableCell>{users.lastname}</TableCell>
+                <TableCell>{users.username}</TableCell>
                 <TableCell>{users.bio}</TableCell>
                 <TableCell>{users.email}</TableCell>
-                <TableCell>{users.email}</TableCell>
-                <TableCell>{users.phoneNumber}</TableCell>
+                <TableCell>{users.phonenumber}</TableCell>
                 <TableCell>{users.gender}</TableCell>
                 </TableRow>
 

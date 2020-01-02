@@ -11,13 +11,13 @@ function App() {
       <Router>
 
       
-      <h1>Artists</h1>
+      <h1>Users</h1>
       <div>
       <Route exact path='/'><Get/></Route>
       </div>
       <div>
-        <Link to='/artist'><Button variant="contained" className="addArtist" color='secondary'>add artist</Button></Link>
-      <Route exact path='/artist'><GetPost/></Route>
+        <Link to='/users'><Button variant="contained" className="addUser" color='secondary'>add user</Button></Link>
+      <Route exact path='/users'><GetPost/></Route>
       </div>
       </Router>
     </div>
