@@ -5,10 +5,9 @@ import {FormControl, FormLabel, TextField, Button} from '@material-ui/core'
 import {Redirect} from 'react-router-dom'
 export default class GetPost extends Component{
     state ={
-        id:'',
         firstName: '',
         lastName: '',
-        userName: '',
+        username: '',
         bio: '',
         email: '',
         phoneNumber: '',
@@ -31,11 +30,11 @@ export default class GetPost extends Component{
             return reply
         }
     };
-    handleSubmit = async(e)=> {
+    handleSubmit = async (e) => {
         e.preventDefault();
         const data = this.state;
         await this.addUser(data);
-        this.setState({ referrer: '/'})
+        this.setState({referrer: '/users'})
     }
     handlechange = async(e)=>{
         const {name, value} = e.target;
@@ -44,11 +43,10 @@ export default class GetPost extends Component{
         })
     }
     render(){
-        const {id,firstName,lastName, username, bio, email, phoneNumber, gender, referrer} = this.state
+        const {firstName,lastName, username, bio, email, phoneNumber, gender, referrer} = this.state
         if (referrer) return <Redirect to={referrer}/>
         return(
         <FormControl onSubmit={this.handleSubmit} method="POST">
-                <TextField id="standard-basic" label="id" type="text" name='id' value={id} onChange={this.handlechange}/>
                 <TextField id="standard-basic" label="firstName" type="text" name='firstName' value={firstName} onChange={this.handlechange}/>
                 <TextField id="standard-basic" label="lastName" type="text"  name='lastName' value={lastName} onChange={this.handlechange}/>
                 <TextField id="standard-basic" label="username" type="text"  name='username'  value={username} onChange={this.handlechange}/>
@@ -57,7 +55,7 @@ export default class GetPost extends Component{
                 <TextField id="standard-basic" label="phoneNumber" type="tel" name='phoneNumber'  value={phoneNumber} onChange={this.handlechange}/>
                 <TextField id="standard-basic" label="gender" type="text" name='gender'  value={gender} onChange={this.handlechange}/>
 
-            <Button type="submit" variant='outlined' color='secondary' onClick={this.handleSubmit}>Enter</Button>
+            <Button  variant='outlined' color='secondary' type='submit' onClick={this.handleSubmit}>Enter</Button>
         </FormControl>
         )}
 }

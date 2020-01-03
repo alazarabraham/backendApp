@@ -21,7 +21,7 @@ class Artist {
 
     } 
     static async addUser(firstName,lastName, username, bio, email, phoneNumber, gender){
-        const query = `INSERT INTO userTable ( firstName,lastName, username, bio, email, phoneNumber, gender) VALUES (${id}, '${name}', $3, $4,$5);`;
+        const query = `INSERT INTO userTable ( firstname,lastname, username, bio, email, phonenumber, gender) VALUES (${id}, '${name}', $3, $4,$5);`;
 
         try{
             const response=await db.result(query, [firstName,lastName, username, bio, email, phoneNumber, gender])

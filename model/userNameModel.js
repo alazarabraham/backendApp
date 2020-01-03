@@ -1,14 +1,13 @@
 const db = require('./conn')
 
 class User {
-    constructor(id, firstName,lastName, username, bio, email, phoneNumber, gender){
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName =lastName;
+    constructor( firstname,lastname, username, bio, email, phonenumber, gender){
+        this.firstname = firstname;
+        this.lastname =lastname;
         this.username = username;
         this.bio = bio;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phonenumber = phonenumber;
         this.gender = gender;
     }
     static async getAll(){
@@ -21,11 +20,11 @@ class User {
         }
 
     } 
-    static async addUser(id,firstName,lastName, username, bio, email, phoneNumber, gender){
-        const query = `INSERT INTO usertable ( id,firstName,lastName, username, bio, email, phoneNumber, gender) VALUES (${id},$2, $3, $4,$5, $6,${phoneNumber}, $8);`;
+    static async addUser(firstname,lastname, username, bio, email, phonenumber, gender){
+        const query = `INSERT INTO usertable ( firstname,lastname, username, bio, email, phonenumber, gender) VALUES (${firstName},$2, $3, $4,$5, $6,${phoneNumber}, $8);`;
 
         try{
-            const response=await db.result(query, [id,firstName,lastName, username, bio, email, phoneNumber, gender])
+            const response=await db.result(query, [firstname,lastname, username, bio, email, phonenumber, gender])
             return response
         }
         catch(error){
